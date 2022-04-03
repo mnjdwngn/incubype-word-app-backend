@@ -1,0 +1,39 @@
+buildscript {
+    dependencies {
+        classpath 'com.google.cloud.tools:appengine-gradle-plugin:2.4.2'
+		
+    }
+}
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.manoj'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+apply plugin: 'com.google.cloud.tools.appengine' 
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.google.firebase:firebase-admin:7.0.1'
+	implementation 'com.google.cloud:google-cloud-storage:'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	runtimeOnly 'mysql:mysql-connector-java'
+	
+//Thanks for using https://jar-download.com
+
+
+}
+
+test {
+	useJUnitPlatform()
+}
